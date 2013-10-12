@@ -12,6 +12,7 @@ window.onkeypress = function (e) {
 var controller = new Leap.Controller({enableGestures: true});
 controller.loop(function (frame) {
 	latestFrame = frame;
+	// イベントの取得と分岐
 	if (frame.gestures.length > 0) {
 		for (var i = 1; i <= frame.gestures.length; i++) {
 			if (frame.gestures[0].type == 'circle') {
@@ -61,6 +62,7 @@ controller.on('deviceDisconnected', function () {
 });
 
 
+// 以下 Three.js サンプル
 var table = [
 	"H", "Hydrogen", "1.00794", 1, 1,
 	"He", "Helium", "4.002602", 18, 1,
